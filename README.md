@@ -1,4 +1,4 @@
-# AI IPO Watch
+# Debut · The AI IPO Observatory
 
 An interactive, research-grounded predictive model for the three frontier-AI listings of 2026: **OpenAI**, **Anthropic**, and **SpaceXAI (SPCX)**. Compiled June 11, 2026, the day before SpaceXAI's record $75B Nasdaq debut.
 

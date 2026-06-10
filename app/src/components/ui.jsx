@@ -1,6 +1,62 @@
 import { motion, useReducedMotion, useInView, useMotionValue, useSpring, useTransform, useScroll } from "motion/react";
 import { useEffect, useRef } from "react";
 
+/* brand mark: three ascending bars, one per listing */
+export function Logo({ size = 26 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="8" fill="#20232a" />
+      <rect x="7" y="17" width="4.6" height="8" rx="2.3" fill="#7e82e8" />
+      <rect x="13.7" y="12" width="4.6" height="13" rx="2.3" fill="#2fbf9b" />
+      <rect x="20.4" y="7" width="4.6" height="18" rx="2.3" fill="#eda05a" />
+    </svg>
+  );
+}
+
+/* full-screen branded loader: exits once the app has mounted and fonts settled */
+export function Loader({ done }) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      initial={false}
+      animate={done ? { opacity: 0, scale: reduce ? 1 : 1.04, pointerEvents: "none" } : { opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-6 bg-paper"
+      aria-hidden={done}
+    >
+      <div className="flex items-end gap-[7px]" role="status" aria-label="Loading">
+        {[["#7e82e8", 22], ["#2fbf9b", 34], ["#eda05a", 46]].map(([c, h], i) => (
+          <motion.span
+            key={c}
+            className="w-[13px] rounded-full"
+            style={{ background: c, height: h, transformOrigin: "bottom" }}
+            animate={reduce ? {} : { scaleY: [1, 0.45, 1] }}
+            transition={{ duration: 1.1, repeat: Infinity, delay: i * 0.16, ease: "easeInOut" }}
+          />
+        ))}
+      </div>
+      <div className="text-center">
+        <motion.p
+          initial={reduce ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="text-3xl font-black tracking-tight text-ink"
+        >
+          Debut
+        </motion.p>
+        <motion.p
+          initial={reduce ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="num mt-1 text-[11px] tracking-[0.22em] text-faint uppercase"
+        >
+          The AI IPO Observatory
+        </motion.p>
+      </div>
+    </motion.div>
+  );
+}
+
 /* thin multicolor progress bar under the nav: reading position at a glance */
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();

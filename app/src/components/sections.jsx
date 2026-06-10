@@ -8,7 +8,7 @@ import { ArrowDownRight, ArrowUpRight, CaretRight, TrendUp, Pulse, Bank, GithubL
 import {
   COMPANIES, POLYMARKET, OUTLOOK, INVESTORS, MACRO_EVENTS, TICKER_ITEMS, AS_OF, fmtB,
 } from "../data/model.js";
-import { Reveal, Num, ChartTip } from "./ui.jsx";
+import { Reveal, Num, ChartTip, Logo } from "./ui.jsx";
 
 /* ---------------- nav ---------------- */
 export function Nav() {
@@ -19,8 +19,10 @@ export function Nav() {
   return (
     <nav className="glass sticky top-0 z-40 border-b border-line">
       <div className="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-5 md:px-8">
-        <a href="#top" className="text-[1.05rem] font-bold tracking-tight">
-          AI IPO <span className="text-mint">Watch</span>
+        <a href="#top" className="flex items-center gap-2.5">
+          <Logo size={27} />
+          <span className="text-[1.1rem] font-black tracking-tight">Debut</span>
+          <span className="num mt-0.5 hidden text-[10px] tracking-[0.18em] text-faint uppercase lg:inline">The AI IPO Observatory</span>
         </a>
         <div className="hidden gap-7 md:flex">
           {links.map(([href, label]) => (
@@ -385,7 +387,10 @@ export function Footer() {
     <footer className="border-t border-line bg-paper-deep/40 py-14 text-[14px] text-dim">
       <div className="mx-auto grid max-w-[1180px] gap-9 px-5 md:grid-cols-[2fr_1fr_1fr] md:px-8">
         <div>
-          <h5 className="mb-3 font-bold text-body">About this model</h5>
+          <div className="mb-3 flex items-center gap-2.5">
+            <Logo size={24} />
+            <h5 className="font-bold text-body">Debut · About this model</h5>
+          </div>
           <p className="leading-relaxed">
             Built from 24 fetched sources, 90 extracted claims and 25 adversarial verifications, layered on a 20-listing comparables dataset spanning 1995 to 2025. All research, sources and the full methodology live in the companion markdown files.
           </p>
@@ -424,7 +429,7 @@ export function Footer() {
             </p>
           </div>
         </div>
-        <p className="num mt-6 text-[11.5px] text-faint">© 2026 AI IPO Watch · A VASU-DEVS production · All rights reserved.</p>
+        <p className="num mt-6 text-[11.5px] text-faint">© 2026 Debut · The AI IPO Observatory · A VASU-DEVS production · All rights reserved.</p>
       </div>
     </footer>
   );

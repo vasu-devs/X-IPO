@@ -1,4 +1,5 @@
-import { Section, Reveal, ScrollProgress } from "./components/ui.jsx";
+import { useEffect, useState } from "react";
+import { Section, Reveal, ScrollProgress, Loader } from "./components/ui.jsx";
 import ForecastLab, { ScenarioCards, PredictionMap } from "./components/ForecastLab.jsx";
 import Comparables from "./components/Comparables.jsx";
 import {
@@ -7,8 +8,17 @@ import {
 import { RevenueRamp, GapViz, MultipleLadder, ListingBands, Verification } from "./components/research.jsx";
 
 export default function App() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const minDelay = new Promise((r) => setTimeout(r, 1300));
+    const fonts = document.fonts?.ready ?? Promise.resolve();
+    Promise.all([minDelay, fonts]).then(() => setLoaded(true));
+  }, []);
+
   return (
     <>
+      <Loader done={loaded} />
       <ScrollProgress />
       <Nav />
       <Hero />
