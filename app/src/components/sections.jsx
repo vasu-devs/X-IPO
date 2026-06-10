@@ -398,9 +398,9 @@ export function Footer() {
         <div>
           <h5 className="mb-3 font-bold text-body">Research files</h5>
           <ul className="space-y-2">
-            <li><a className="text-mint hover:underline" href="../research/00-executive-summary.md">Executive summary</a></li>
-            <li><a className="text-mint hover:underline" href="../research/04-historical-ipo-comparables.md">IPO comparables</a></li>
-            <li><a className="text-mint hover:underline" href="../research/07-predictive-model-methodology.md">Methodology</a></li>
+            <li><a className="text-mint hover:underline" href="research/00-executive-summary.md">Executive summary</a></li>
+            <li><a className="text-mint hover:underline" href="research/04-historical-ipo-comparables.md">IPO comparables</a></li>
+            <li><a className="text-mint hover:underline" href="research/07-predictive-model-methodology.md">Methodology</a></li>
           </ul>
         </div>
         <div>
