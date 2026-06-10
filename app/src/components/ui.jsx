@@ -1,14 +1,17 @@
 import { motion, useReducedMotion, useInView, useMotionValue, useSpring, useTransform, useScroll } from "motion/react";
 import { useEffect, useRef } from "react";
 
-/* brand mark: three ascending bars, one per listing */
+/* brand mark: three acrylic steps and the median path rising through them.
+   Arohan (Sanskrit): the ascent. */
 export function Logo({ size = 26 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect width="32" height="32" rx="8" fill="#20232a" />
-      <rect x="7" y="17" width="4.6" height="8" rx="2.3" fill="#7e82e8" />
-      <rect x="13.7" y="12" width="4.6" height="13" rx="2.3" fill="#2fbf9b" />
-      <rect x="20.4" y="7" width="4.6" height="18" rx="2.3" fill="#eda05a" />
+      <rect x="0.5" y="0.5" width="31" height="31" rx="8" fill="#fdfdfb" stroke="#c9c6b8" />
+      <rect x="5.5" y="19.5" width="6" height="7" rx="2" fill="#7e82e8" />
+      <rect x="13" y="14" width="6" height="12.5" rx="2" fill="#2fbf9b" />
+      <rect x="20.5" y="8.5" width="6" height="18" rx="2" fill="#eda05a" />
+      <path d="M5 23 C 12 21, 17 16, 26 6.5" stroke="#20232a" strokeWidth="2.2" strokeLinecap="round" fill="none" />
+      <circle cx="26" cy="6.5" r="2.4" fill="#20232a" />
     </svg>
   );
 }
@@ -42,7 +45,7 @@ export function Loader({ done }) {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="text-3xl font-black tracking-tight text-ink"
         >
-          Debut
+          Arohan
         </motion.p>
         <motion.p
           initial={reduce ? false : { opacity: 0 }}
@@ -50,7 +53,7 @@ export function Loader({ done }) {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="num mt-1 text-[11px] tracking-[0.22em] text-faint uppercase"
         >
-          The AI IPO Observatory
+          आरोहण · The AI IPO Observatory
         </motion.p>
       </div>
     </motion.div>

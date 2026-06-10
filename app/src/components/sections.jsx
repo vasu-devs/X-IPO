@@ -21,7 +21,7 @@ export function Nav() {
       <div className="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-5 md:px-8">
         <a href="#top" className="flex items-center gap-2.5">
           <Logo size={27} />
-          <span className="text-[1.1rem] font-black tracking-tight">Debut</span>
+          <span className="text-[1.1rem] font-black tracking-tight">Arohan</span>
           <span className="num mt-0.5 hidden text-[10px] tracking-[0.18em] text-faint uppercase lg:inline">The AI IPO Observatory</span>
         </a>
         <div className="hidden gap-7 md:flex">
@@ -389,7 +389,7 @@ export function Footer() {
         <div>
           <div className="mb-3 flex items-center gap-2.5">
             <Logo size={24} />
-            <h5 className="font-bold text-body">Debut · About this model</h5>
+            <h5 className="font-bold text-body">Arohan · About this model</h5>
           </div>
           <p className="leading-relaxed">
             Built from 24 fetched sources, 90 extracted claims and 25 adversarial verifications, layered on a 20-listing comparables dataset spanning 1995 to 2025. All research, sources and the full methodology live in the companion markdown files.
@@ -429,7 +429,7 @@ export function Footer() {
             </p>
           </div>
         </div>
-        <p className="num mt-6 text-[11.5px] text-faint">© 2026 Debut · The AI IPO Observatory · A VASU-DEVS production · All rights reserved.</p>
+        <p className="num mt-6 text-[11.5px] text-faint">© 2026 Arohan · The AI IPO Observatory · A VASU-DEVS production · All rights reserved.</p>
       </div>
     </footer>
   );
