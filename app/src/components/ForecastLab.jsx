@@ -189,11 +189,16 @@ export default function ForecastLab() {
   );
 }
 
-/* Prediction map: probability-weighted expected return, company x month. */
+/* Prediction map: probability-weighted expected return, company x month.
+   Scenario weights are user-adjustable and renormalized live. */
 export function PredictionMap() {
+  const [w, setW] = useState({ bear: 25, base: 50, bull: 25 });
+  const sum = w.bear + w.base + w.bull || 1;
+  const norm = { bear: w.bear / sum, base: w.base / sum, bull: w.bull / sum };
+
   const rows = COMPANIES.map((c) => {
     const blend = c.paths.base.map((_, t) =>
-      0.25 * c.paths.bear[t] + 0.5 * c.paths.base[t] + 0.25 * c.paths.bull[t] - 100
+      norm.bear * c.paths.bear[t] + norm.base * c.paths.base[t] + norm.bull * c.paths.bull[t] - 100
     );
     return { c, blend };
   });
@@ -213,9 +218,25 @@ export function PredictionMap() {
   return (
     <div className="card overflow-x-auto p-5 md:p-7">
       <h3 className="mb-1 font-bold">The prediction map</h3>
-      <p className="mb-5 text-[13px] text-dim">
-        Probability-weighted expected return vs offer (25% bear, 50% base, 25% bull), month by month after each listing. Green is upside, red is drawdown.
+      <p className="mb-4 text-[13px] text-dim">
+        Probability-weighted expected return vs offer, month by month after each listing. Green is upside, red is drawdown. Set your own scenario odds; the map recomputes live.
       </p>
+      <div className="mb-6 grid max-w-[640px] grid-cols-3 gap-4">
+        {SCENARIOS.map((s) => (
+          <div key={s.id}>
+            <div className="mb-1 flex items-baseline justify-between">
+              <span className="text-[12px] font-semibold" style={{ color: s.color }}>{s.name}</span>
+              <span className="num text-[12px] text-dim">{Math.round(norm[s.id] * 100)}%</span>
+            </div>
+            <input
+              type="range" min="0" max="100" step="5" value={w[s.id]}
+              onChange={(e) => setW({ ...w, [s.id]: Number(e.target.value) })}
+              className="w-full" aria-label={`${s.name} scenario weight`}
+              style={{ background: `linear-gradient(90deg, ${s.color}, #e7e4d9)` }}
+            />
+          </div>
+        ))}
+      </div>
       <div className="min-w-[760px]">
         <div className="grid grid-cols-[110px_repeat(12,1fr)] gap-1">
           <span />

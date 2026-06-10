@@ -2,8 +2,9 @@ import { Section, Reveal, ScrollProgress } from "./components/ui.jsx";
 import ForecastLab, { ScenarioCards, PredictionMap } from "./components/ForecastLab.jsx";
 import Comparables from "./components/Comparables.jsx";
 import {
-  Nav, Hero, Ticker, Contenders, Race, Timing, Outlook, Capital, Macro, Multiples, Footer,
+  Nav, Hero, Ticker, Contenders, Race, Timing, Outlook, Capital, Macro, Footer,
 } from "./components/sections.jsx";
+import { RevenueRamp, GapViz, MultipleLadder, ListingBands, Verification } from "./components/research.jsx";
 
 export default function App() {
   return (
@@ -27,6 +28,10 @@ export default function App() {
           sub="From seed-stage marks to near-trillion prints in three years. Log scale, because nothing else fits."
         >
           <Reveal><Race /></Reveal>
+          <div className="mt-5 grid gap-5 lg:grid-cols-2">
+            <Reveal><RevenueRamp /></Reveal>
+            <Reveal delay={0.08}><GapViz /></Reveal>
+          </div>
         </Section>
 
         <Section
@@ -36,7 +41,7 @@ export default function App() {
         >
           <Reveal><Comparables /></Reveal>
           <div className="mt-5 grid gap-5 lg:grid-cols-2">
-            <Reveal><Multiples /></Reveal>
+            <Reveal><MultipleLadder /></Reveal>
             <Reveal delay={0.08}><Timing /></Reveal>
           </div>
         </Section>
@@ -49,6 +54,13 @@ export default function App() {
           <Reveal><ForecastLab /></Reveal>
           <div className="mt-5">
             <Reveal><PredictionMap /></Reveal>
+          </div>
+          <div className="mt-12">
+            <Reveal>
+              <h3 className="mb-2 text-xl font-bold">The listing-day board</h3>
+              <p className="mb-6 max-w-[64ch] text-dim">Each company's three decisive ranges side by side: where it prices, how day one trades, and where it stands a year in. The colored tick is the model median.</p>
+            </Reveal>
+            <ListingBands />
           </div>
           <div className="mt-12">
             <Reveal>
@@ -73,6 +85,14 @@ export default function App() {
           sub="The defining feature of this cycle: the public-market buyer base bought in before the filings. The last private rounds were the real bookbuilds."
         >
           <Reveal><Capital /></Reveal>
+        </Section>
+
+        <Section
+          id="method"
+          title="Inside the research"
+          sub="This page is built on a verification pipeline, not vibes. Here is what survived it, what got killed, and why the kills matter as much as the survivors."
+        >
+          <Verification />
         </Section>
 
         <Section

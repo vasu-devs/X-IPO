@@ -220,3 +220,57 @@ export const TICKER_ITEMS = [
 
 export const fmtB = (v) =>
   v >= 1000 ? "$" + (v / 1000).toFixed(2).replace(/\.?0+$/, "") + "T" : "$" + Math.round(v) + "B";
+
+/* ---------- research-derived datasets (sources: ../../research/*.md) ---------- */
+
+/* Annualized revenue run-rate, $B. Company-disclosed and press-reported. */
+export const REVENUE_TRAJ = {
+  months: ["2024-12", "2025-03", "2025-06", "2025-09", "2025-12", "2026-03", "2026-05"],
+  series: [
+    { id: "openai", name: "OpenAI", pts: { "2024-12": 4, "2025-12": 20, "2026-03": 23, "2026-05": 24 } },
+    { id: "anthropic", name: "Anthropic", pts: { "2025-03": 1.4, "2025-06": 5, "2025-12": 9, "2026-05": 47 } },
+    { id: "spcx", name: "xAI + X", pts: { "2025-09": 0.4, "2025-12": 3.8 } },
+  ],
+};
+
+/* GMO gap: AI investment vs industry revenue, $B */
+export const GAP = [
+  { label: "Capital invested in AI (GMO est., Jan 2026)", v: 1000, color: "#a36408", note: "“A trillion dollars or more”" },
+  { label: "Whole-industry AI revenue (GMO est., 2025)", v: 50, color: "#c14431", note: "Under $50B" },
+  { label: "Just OpenAI + Anthropic + xAI run-rate (May 2026)", v: 75, color: "#0e7a67", note: "$24B + $47B + $4B" },
+];
+
+/* Forward revenue multiple at IPO vs 12-month outcome. AI labs = pending. */
+export const LADDER = [
+  { name: "Google · 2004", m: 7.5, out: 200 },
+  { name: "CoreWeave · 2025", m: 12, out: 120 },
+  { name: "ARM · 2023", m: 17, out: 110 },
+  { name: "Facebook · 2012", m: 20, out: -30 },
+  { name: "Anthropic · at $965B", m: 20.5, out: null, ai: "anthropic" },
+  { name: "OpenAI · at $852B", m: 35.5, out: null, ai: "openai" },
+  { name: "OpenAI · at $1T print", m: 42, out: null, ai: "openai" },
+  { name: "Snowflake · 2020", m: 57, out: -40, outNote: "vs day-1 close" },
+];
+
+/* The verification trail behind every number on this page */
+export const VERIFICATION = {
+  stats: [
+    [106, "research agents dispatched"],
+    [24, "sources fetched"],
+    [90, "claims extracted"],
+    [25, "adversarially verified"],
+    [21, "confirmed (3-vote panel)"],
+    [4, "refuted and discarded"],
+  ],
+  sources: [
+    { label: "Primary (company filings, announcements)", n: 2, color: "#0e7a67" },
+    { label: "Secondary (CNBC, Fortune, TechCrunch, Bloomberg)", n: 13, color: "#4549b8" },
+    { label: "Blogs and low-reliability (discounted)", n: 9, color: "#c2bfb1" },
+  ],
+  refuted: [
+    { claim: "OpenAI is valued at $750 billion", note: "Stale within weeks. The $122B round printed $852B on Mar 31.", vote: "0-3" },
+    { claim: "Anthropic is valued at $350 billion", note: "Superseded by the $965B Series H on May 28.", vote: "1-2" },
+    { claim: "OpenAI has never disclosed revenue", note: "It has, publicly: about $2B per month.", vote: "0-3" },
+    { claim: "OpenAI filed its S-1 on June 9", note: "Announced June 8; reportedly prepared around May 22.", vote: "0-3" },
+  ],
+};
