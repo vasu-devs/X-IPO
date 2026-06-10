@@ -32,7 +32,7 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <span className="num hidden rounded-full border border-line px-3 py-1 text-[11px] text-dim sm:inline">{AS_OF}</span>
           <a
-            href="https://github.com/vasu-devs/X-IPO"
+            href="https://github.com/vasu-devs/Arohan"
             target="_blank" rel="noopener noreferrer" aria-label="Source on GitHub"
             className="text-dim transition-colors hover:text-ink"
           >
