@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import {
   LineChart, Line, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, ReferenceLine, LabelList,
 } from "recharts";
-import { ArrowDownRight, ArrowUpRight, CaretRight, TrendUp, Pulse, Bank, GithubLogo } from "@phosphor-icons/react";
+import { ArrowDownRight, ArrowUpRight, CaretRight, TrendUp, Pulse, Bank, GithubLogo, List, X } from "@phosphor-icons/react";
 import {
   COMPANIES, POLYMARKET, OUTLOOK, INVESTORS, MACRO_EVENTS, TICKER_ITEMS, AS_OF, fmtB,
 } from "../data/model.js";
@@ -12,6 +12,7 @@ import { Reveal, Num, ChartTip, Logo } from "./ui.jsx";
 
 /* ---------------- nav ---------------- */
 export function Nav() {
+  const [open, setOpen] = useState(false);
   const links = [
     ["#contenders", "Contenders"], ["#history", "History"], ["#forecast", "Forecast"],
     ["#outlook", "Next 12 months"], ["#capital", "Capital"],
@@ -38,8 +39,38 @@ export function Nav() {
           >
             <GithubLogo size={20} weight="fill" />
           </a>
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-line text-ink md:hidden"
+          >
+            {open ? <X size={19} weight="bold" /> : <List size={19} weight="bold" />}
+          </button>
         </div>
       </div>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden border-t border-line md:hidden"
+          >
+            <div className="flex flex-col px-5 py-2">
+              {links.map(([href, label]) => (
+                <a
+                  key={href} href={href} onClick={() => setOpen(false)}
+                  className="border-b border-line/60 py-3.5 text-[15px] font-semibold text-body last:border-0"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

@@ -253,7 +253,7 @@ export function PredictionMap() {
         <span className="h-2.5 w-40 rounded-full"
           style={{ background: "linear-gradient(90deg, rgba(193,68,49,.88), rgba(241,239,232,1) 50%, rgba(14,122,103,.88))" }} />
         <span>+45%</span>
-        <span className="ml-3">Hover any cell for the exact figure.</span>
+        <span className="ml-3">Tap or hover any cell for the exact figure. Swipe sideways for later months.</span>
       </div>
     </div>
   );

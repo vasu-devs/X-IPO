@@ -109,9 +109,14 @@ export function MultipleLadder() {
           const lab = d.ai ? COMPANIES.find((c) => c.id === d.ai) : null;
           const color = lab ? lab.color : d.out >= 0 ? "#0e7a67" : "#c14431";
           return (
-            <div key={d.name} className="grid grid-cols-[150px_1fr_92px] items-center gap-3 md:grid-cols-[180px_1fr_110px]">
-              <span className={`num truncate text-[12.5px] ${lab ? "font-bold text-ink" : "text-dim"}`}>{d.name}</span>
-              <div className="relative h-5">
+            <div key={d.name} className="md:grid md:grid-cols-[180px_1fr_110px] md:items-center md:gap-3">
+              <div className="mb-1 flex items-baseline justify-between md:contents">
+                <span className={`num truncate text-[12.5px] md:col-start-1 md:row-start-1 ${lab ? "font-bold text-ink" : "text-dim"}`}>{d.name}</span>
+                <span className={`num text-right text-[12px] font-semibold md:col-start-3 md:row-start-1 ${d.out === null ? "text-faint" : d.out >= 0 ? "text-mint" : "text-rose"}`}>
+                  {d.out === null ? "pending" : `${d.out > 0 ? "+" : ""}${d.out}%${d.outNote ? "*" : ""}`}
+                </span>
+              </div>
+              <div className="relative mb-3 h-5 md:col-start-2 md:row-start-1 md:mb-0">
                 <div className="absolute inset-y-2 inset-x-0 rounded-full bg-paper-deep/70" />
                 {/* 25x danger line */}
                 <div className="absolute top-0 bottom-0 w-px border-l border-dashed border-rose/60" style={{ left: `${(25 / max) * 100}%` }} />
@@ -134,9 +139,6 @@ export function MultipleLadder() {
                   {d.m}x
                 </motion.span>
               </div>
-              <span className={`num text-right text-[12px] font-semibold ${d.out === null ? "text-faint" : d.out >= 0 ? "text-mint" : "text-rose"}`}>
-                {d.out === null ? "pending" : `${d.out > 0 ? "+" : ""}${d.out}%${d.outNote ? "*" : ""}`}
-              </span>
             </div>
           );
         })}
