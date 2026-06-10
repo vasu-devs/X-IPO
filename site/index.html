@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI IPO Watch · OpenAI, Anthropic and SpaceXAI go public</title>
+<meta name="description" content="A data-grounded predictive model for the OpenAI, Anthropic and SpaceXAI listings, built on 30 years of landmark tech IPOs. Updated June 11, 2026." />
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,600,700,900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">AI IPO <b>Watch</b></a>
+    <div class="nav-links">
+      <a href="#contenders">Contenders</a>
+      <a href="#history">History</a>
+      <a href="#model">Model</a>
+      <a href="#capital">Capital</a>
+      <a href="#macro">Macro</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow num">Updated June 11, 2026</span>
+      <h1>The trillion-dollar listings <span class="dim">are no longer hypothetical.</span></h1>
+      <p class="hero-sub">OpenAI and Anthropic have filed confidential S-1s. SpaceXAI lists tomorrow. One model, thirty years of IPO history, three predictions.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#model">See the predictions</a>
+        <a class="btn btn-ghost" href="#history">Explore the data</a>
+      </div>
+    </div>
+    <aside class="hero-card reveal">
+      <span class="tag num">Tomorrow · Nasdaq · SPCX</span>
+      <h3>SpaceXAI</h3>
+      <p class="sub">The largest IPO in history prices at a fixed $135 per share.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="v num">$1.75T</div><div class="k">Top valuation sought</div></div>
+        <div class="stat"><div class="v num">$75B</div><div class="k">Raise (555.6M shares)</div></div>
+        <div class="stat"><div class="v num">~4.3%</div><div class="k">Free float</div></div>
+        <div class="stat"><div class="v num up">+22%</div><div class="k">Model median day-1</div></div>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<main>
+
+<section id="contenders">
+  <div class="wrap">
+    <h2 class="reveal">Three labs, one window</h2>
+    <p class="section-sub reveal">Every figure below survived adversarial source verification or is flagged in the research files. Private marks moved so fast in 2026 that several were refuted as stale within weeks.</p>
+    <div class="contenders" id="contenders-grid"></div>
+  </div>
+</section>
+
+<section id="race">
+  <div class="wrap">
+    <h2 class="reveal">The valuation race</h2>
+    <p class="section-sub reveal">From seed-stage marks to near-trillion prints in three years. Log scale, because nothing else fits.</p>
+    <div class="chart-block reveal">
+      <div class="chart-wrap"><canvas id="chart-race"></canvas></div>
+      <p class="chart-note">Post-money valuations at each round or event, $B, log scale. SpaceXAI shows the combined entity from Feb 2026. Sources: research files 01 to 03.</p>
+    </div>
+  </div>
+</section>
+
+<section id="fundamentals">
+  <div class="wrap">
+    <h2 class="reveal">What the price has to justify</h2>
+    <p class="section-sub reveal">Above roughly 25 times forward revenue, the 12-month return distribution of landmark IPOs skews sharply negative unless growth exceeds 80% a year. Anthropic clears the bar with room; OpenAI at $1T does not.</p>
+    <div class="split-2">
+      <div class="chart-block reveal">
+        <div class="chart-wrap short"><canvas id="chart-revenue"></canvas></div>
+        <p class="chart-note">Annualized revenue, $B. Company-disclosed run-rates, unaudited.</p>
+      </div>
+      <div class="chart-block reveal">
+        <div class="chart-wrap short"><canvas id="chart-multiple"></canvas></div>
+        <p class="chart-note">Valuation divided by annualized revenue. SpaceXAI excluded: it prices as a hybrid aerospace and AI asset. Dashed line marks the 25x danger threshold from the comparables model.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="history">
+  <div class="wrap">
+    <h2 class="reveal">Thirty years of landmark debuts</h2>
+    <p class="section-sub reveal">Twenty category-defining listings from Netscape to Klarna. The pattern that matters: the bigger the raise, the smaller the pop. Mega-deals price tight because nobody can afford to leave billions on the table.</p>
+    <div class="chart-block reveal">
+      <div class="chart-wrap"><canvas id="chart-comps"></canvas></div>
+      <p class="chart-note">Each bubble is one IPO. Horizontal: capital raised, $B, log scale. Vertical: first-day return over the offer price. Bubble size: valuation at pricing. Hover any bubble for the 12-month outcome.</p>
+    </div>
+  </div>
+</section>
+
+<section id="model">
+  <div class="wrap">
+    <h2 class="reveal">The predictions</h2>
+    <p class="section-sub reveal">Probability-weighted P10, P50 and P90 bands from the four-layer model: comparables regression, verified fundamentals, demand overlay, macro gate. Full methodology in the research folder.</p>
+    <div class="bands" id="bands"></div>
+    <div class="split-2" style="margin-top:18px">
+      <div class="chart-block reveal">
+        <div class="chart-wrap short"><canvas id="chart-day1"></canvas></div>
+        <p class="chart-note">Modeled first-day return bands over the offer price.</p>
+      </div>
+      <div class="chart-block reveal">
+        <div class="chart-wrap short"><canvas id="chart-timing"></canvas></div>
+        <p class="chart-note">Polymarket-implied probability that OpenAI is public by each date, fetched June 11, 2026. December market volume ~$673K, so treat as a noisy signal.</p>
+      </div>
+    </div>
+    <h2 class="reveal" style="margin-top:72px">How the year breaks</h2>
+    <p class="section-sub reveal">Everything keys off the first month of SPCX trading. It is the price discovery event for the entire private AI complex.</p>
+    <div class="scenarios" id="scenarios"></div>
+  </div>
+</section>
+
+<section id="capital">
+  <div class="wrap">
+    <h2 class="reveal">Where the money already sits</h2>
+    <p class="section-sub reveal">The defining feature of this cycle: the public-market buyer base bought in before the filings. The last private rounds were the real bookbuilds.</p>
+    <div class="inv-grid reveal" id="inv-grid"></div>
+  </div>
+</section>
+
+<section id="macro">
+  <div class="wrap">
+    <h2 class="reveal">The tape they land on</h2>
+    <p class="section-sub reveal">Nasdaq up about 10% on the year but 5% off its June 2 record, with the 10-year yield above 4.5%. The window is open, and twitchy.</p>
+    <div class="macro-grid">
+      <div class="timeline reveal">
+        <ul id="timeline"></ul>
+      </div>
+      <div class="bubble reveal">
+        <div>
+          <blockquote>Total AI industry revenue is estimated at less than $50 billion, against a trillion dollars or more of investment.</blockquote>
+          <div class="who">GMO, "Valuing AI", January 2026</div>
+        </div>
+        <p class="counter">Five months later, Anthropic's $47B run-rate alone nearly equals that whole-industry estimate, and OpenAI runs about $24B annualized. Either the revenue gap is closing at historic speed, or run-rate accounting flatters the picture. Both can be true, and the S-1s will finally show audited numbers.</p>
+        <p class="counter">The other open question is revenue quality: NVIDIA, Amazon and Microsoft hold equity stakes intertwined with compute purchase commitments. Expect the circular-deal critique to become a disclosure battleground.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h5>About this model</h5>
+        <p>Built from 24 fetched sources, 90 extracted claims and 25 adversarial verifications, layered on a 20-listing comparables dataset spanning 1995 to 2025. All research, sources and the full methodology live in the companion markdown files.</p>
+      </div>
+      <div>
+        <h5>Research files</h5>
+        <ul>
+          <li><a href="../research/00-executive-summary.md">Executive summary</a></li>
+          <li><a href="../research/04-historical-ipo-comparables.md">IPO comparables</a></li>
+          <li><a href="../research/07-predictive-model-methodology.md">Methodology</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Key sources</h5>
+        <ul>
+          <li><a href="https://openai.com/index/accelerating-the-next-phase-ai/">OpenAI announcement</a></li>
+          <li><a href="https://www.anthropic.com/news/series-h">Anthropic Series H</a></li>
+          <li><a href="https://polymarket.com/event/openai-ipo-by">Polymarket odds</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">Research exercise, not investment advice. Private-company figures are company-disclosed or press-reported and unaudited; run-rates annualize single months. Predictions are probability-weighted ranges conditional on listings occurring. Compiled June 11, 2026.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
